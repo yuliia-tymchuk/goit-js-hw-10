@@ -27,7 +27,7 @@ function onSearchBox(event) {
     .catch(error => {
       console.log(error);
       Notify.failure('Oops, there is no country with that name', {
-        position: 'center-center',
+        position: 'center-top',
         width: '400px',
         fontSize: '20px',
       });
@@ -38,7 +38,7 @@ function onSearchBox(event) {
 function createMarkup(data) {
   if (data.length > 10) {
     Notify.info('Too many matches found. Please enter a more specific name', {
-      position: 'center-center',
+      position: 'center-top',
       width: '400px',
       fontSize: '20px',
     });
@@ -63,9 +63,9 @@ function createMarkup(data) {
     const { name, capital, population, flags, languages } = data[0];
     const languagesNormalize = Object.values(languages).join(',');
 
-    const markupCountryInfo = `<div class="wrapper-name-country">
+    const markupCountryInfo = `<div class="country">
     <img src="${flags.svg}" alt="country flag" width="60px" height="40px" />
-    <h2 class="country">${name.official}</h2>
+    <h2 class="country-name">${name.official}</h2>
   </div>
   <ul class="info-list">
     <li class="info-item">Capital:&nbsp<span>${capital[0]}</span></li>
